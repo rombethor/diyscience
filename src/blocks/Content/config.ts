@@ -1,13 +1,16 @@
 import type { Block, Field } from 'payload'
 
 import {
+  BlocksFeature,
   FixedToolbarFeature,
   HeadingFeature,
   InlineToolbarFeature,
   lexicalEditor,
+  LinkFeature,
 } from '@payloadcms/richtext-lexical'
 
 import { link } from '@/fields/link'
+import { Latex } from '../Latex/config'
 
 const columnFields: Field[] = [
   {
@@ -41,6 +44,22 @@ const columnFields: Field[] = [
         return [
           ...rootFeatures,
           HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
+          LinkFeature({
+            fields: ({defaultFields}) => [
+              ...defaultFields,
+              {
+                name: 'rel',
+                label: 'Rel Attribute',
+                type: 'select',
+                hasMany: true,
+                options: ['noopener', 'noreferrer', 'nofollow'],
+                admin: {
+                  description: 'The rel attribute defines the relationship between a linked resource and the current document. This is a custom link field.'
+                }
+              }
+            ]
+          }),
+          BlocksFeature({inlineBlocks: [Latex]}),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
         ]
