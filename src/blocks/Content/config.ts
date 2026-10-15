@@ -59,7 +59,7 @@ const columnFields: Field[] = [
               }
             ]
           }),
-          BlocksFeature({inlineBlocks: [Latex]}),
+          BlocksFeature({ blocks: [Latex], inlineBlocks: [Latex] }),
           FixedToolbarFeature(),
           InlineToolbarFeature(),
         ]

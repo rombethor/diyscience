@@ -1,8 +1,8 @@
-import type { Block } from 'payload';
+import type { Block } from 'payload'
 
 export const Latex: Block = {
-  slug: 'Latex',
-  interfaceName: 'Latex',
+  slug: 'latex',
+  interfaceName: 'LatexBlock',
   fields: [
     {
       name: 'latex',
@@ -13,6 +13,7 @@ export const Latex: Block = {
       name: 'displayMode',
       type: 'checkbox',
       defaultValue: false,
-    }
-  ]
-};
+      label: 'Display as a block',
+    },
+  ],
+}
