@@ -45,7 +45,7 @@ const columnFields: Field[] = [
           ...rootFeatures,
           HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
           LinkFeature({
-            fields: ({defaultFields}) => [
+            fields: ({ defaultFields }) => [
               ...defaultFields,
               {
                 name: 'rel',
@@ -54,10 +54,11 @@ const columnFields: Field[] = [
                 hasMany: true,
                 options: ['noopener', 'noreferrer', 'nofollow'],
                 admin: {
-                  description: 'The rel attribute defines the relationship between a linked resource and the current document. This is a custom link field.'
-                }
-              }
-            ]
+                  description:
+                    'The rel attribute defines the relationship between a linked resource and the current document. This is a custom link field.',
+                },
+              },
+            ],
           }),
           BlocksFeature({ blocks: [Latex], inlineBlocks: [Latex] }),
           FixedToolbarFeature(),
